@@ -1,3 +1,3 @@
-# Lama Dev Chat App Starter template
+# Real Time Chat Application Web Based (whatsapp Clone)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is real time chat app that allows you to chat with your people in real time incuding voice and video call options.

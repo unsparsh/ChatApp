@@ -1,14 +1,20 @@
 import EmojiPicker from 'emoji-picker-react';
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import './chat.css';
 const Chat = () => {
 const[open,setOpen] = useState(false);
 const[text,setText] = useState("");
 
+const endRef = useRef(null)
+
+useEffect(()=>{
+endRef.current?.scrollIntoView({behaviour: "smooth"});
+},[])
+
 const handleEmoji = e =>{
   setText(prev=>prev+e.emoji);
   setOpen(false)
-};
+}; 
 
 
   return (
@@ -27,7 +33,69 @@ const handleEmoji = e =>{
           <img src="./info.png" alt="" />
         </div>
         </div>
-      <div className="center"></div>
+      <div className="center">
+        
+      <div className="message">
+          <img src="./avatar.png" alt="" />
+          <div className="texts">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus aperiam quae nobis dignissimos ipsa dolorum pariatur sequi iusto quaerat natus itaque non, ea repellendus expedita id nam. Libero, cupiditate eligendi!
+          </p>
+          <span>1min ago</span>
+          </div>
+        </div>
+        
+        
+        <div className="message own">
+          <div className="texts">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus aperiam quae nobis dignissimos ipsa dolorum pariatur sequi iusto quaerat natus itaque non, ea repellendus expedita id nam. Libero, cupiditate eligendi!
+          </p>
+          <span>1min ago</span>
+          </div>
+        </div>
+        
+        <div className="message">
+          <img src="./avatar.png" alt="" />
+          <div className="texts">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus aperiam quae nobis dignissimos ipsa dolorum pariatur sequi iusto quaerat natus itaque non, ea repellendus expedita id nam. Libero, cupiditate eligendi!
+          </p>
+          <span>1min ago</span>
+          </div>
+        </div>
+        
+        <div className="message own">
+          
+          <div className="texts">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus aperiam quae nobis dignissimos ipsa dolorum pariatur sequi iusto quaerat natus itaque non, ea repellendus expedita id nam. Libero, cupiditate eligendi!
+          </p>
+          <span>1min ago</span>
+          </div>
+        </div>
+        
+        <div className="message">
+          <img src="./avatar.png" alt="" />
+          <div className="texts">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus aperiam quae nobis dignissimos ipsa dolorum pariatur sequi iusto quaerat natus itaque non, ea repellendus expedita id nam. Libero, cupiditate eligendi!
+          </p>
+          <span>1min ago</span>
+          </div>
+        </div> 
+
+        <div className="message own">
+          <div className="texts">
+          <img src="https://tse3.mm.bing.net/th?id=OIP.zO0Reqn2nryd0KL1Pkx_jAHaFj&pid=Api&H=119&W=160 " alt="" />
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus aperiam quae nobis dignissimos ipsa dolorum pariatur sequi iusto quaerat natus itaque non, ea repellendus expedita id nam. Libero, cupiditate eligendi!
+          </p>
+          <span>1min ago</span>
+          </div>
+        </div>
+        <div ref={endRef}></div>
+      </div>
       <div className="bottom">
       <div className="icons">
         <img src="./img.png" alt="" />
@@ -39,11 +107,14 @@ const handleEmoji = e =>{
       value={text}
       onChange={(e) => setText(e.target.value)}
       />
-      <div className="./emoji">
+      <div className="emoji">
       <img src="./emoji.png"
       alt=""
       onClick={()=>setOpen((prev)=>!prev)} />
+
+      <div className="picker">
       <EmojiPicker open={open} onEmojiClick={handleEmoji}/>
+      </div>
       </div>
       <button className="sendButton">Send</button>
     </div>

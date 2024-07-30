@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import "./Login.css";
-import { ToastContainer } from "react-toastify";
-import { toast } from 'react-toastify';
 
 const Login = () => {
   const [avatar, setAvatar] = useState({
@@ -21,7 +19,7 @@ const handleAvatar = (e) => {
 
   const handleLogin = e =>{
     e.preventDefault()
-    toast.warn("Hello")
+
   }
 
 return(
